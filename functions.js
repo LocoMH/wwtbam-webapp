@@ -30,7 +30,7 @@ function setCurrentLevel(level) {
     updateMoneyTreeGraphics()
 }
 
-function setLifelineAvailability(lifeline, available) {   
+function setLifelineAvailability(lifeline, available) {
     lifelineAvailability[lifeline] = available
     updateLifelineGraphics()
 }
@@ -61,7 +61,7 @@ function updateAnswerFormatting() {
     $('.answer-text').removeClass("logged-in-or-correct")
     if (loggedInAnswer) {
         $(`#answer-${loggedInAnswer}`).addClass("logged-in-or-correct")
-    } 
+    }
     if (correctAnswer) {
         $(`#answer-${correctAnswer}`).addClass("logged-in-or-correct")
     }
@@ -97,7 +97,7 @@ function updateLayout() {
     }
 }
 
-function updateGraphicsVersion(newGraphicsVersion) {
+function setGraphicsVersion(newGraphicsVersion) {
     graphicsVersion = newGraphicsVersion
     updateQuestionGraphics()
     updateMoneyTreeGraphics()

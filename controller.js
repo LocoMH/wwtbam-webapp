@@ -42,17 +42,16 @@ $(document).ready(function () {
     $('#btn-correct-D').on('click', function () {
         sendMessage(message = ["showCorrectAnswer", "D"])
     })
+    $("#level-setter").on("change", function () {
+        sendMessage(message = ["setCurrentLevel", this.value])
+    })
+    $('input[type=radio][name=graphics-version]').on("change", function () {
+        sendMessage(message = ["setGraphicsVersion", this.value])
+    })
+
+
     // $('#btn-show-correct').on('click', function () {
     //     showCorrectAnswer("B")
-    // })
-    // $('#btn-set-wwm').on('click', function () {
-    //     updateGraphicsVersion('wwm')
-    // })
-    // $('#btn-set-original').on('click', function () {
-    //     updateGraphicsVersion('international-2002')
-    // })
-    // $('#btn-set-rave').on('click', function () {
-    //     updateGraphicsVersion('international-rave-revival')
     // })
     // $('#btn-level-up').on('click', function () {
     //     setCurrentLevel(currentLevel + 1)

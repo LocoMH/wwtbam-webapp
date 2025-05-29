@@ -1,6 +1,6 @@
 var loggedInAnswer = null
 var correctAnswer = null
-var currentLevel = 15
+var currentLevel = 0
 var safetyNets = [5, 10, 15]
 var lifelineMapping = {
     1: 2,
@@ -14,4 +14,4 @@ var lifelineAvailability = {
     3: true,
     4: true
 }
-var graphicsVersion = 'wwm'
+var graphicsVersion = 'international-rave-revival'

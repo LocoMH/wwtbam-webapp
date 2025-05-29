@@ -20,6 +20,14 @@ socket.onmessage = (event) => {
     showCorrectAnswer(msg[1])
     return
   }
+  if (msg[0] == "setCurrentLevel") {
+    setCurrentLevel(msg[1])
+    return
+  }
+  if (msg[0] == "setGraphicsVersion") {
+    setGraphicsVersion(msg[1])
+    return
+  }
 }
 
 function sendMessage(message) {
