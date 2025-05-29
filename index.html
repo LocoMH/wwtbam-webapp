@@ -1,56 +1,60 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="wwm.css">
-    <link rel="stylesheet" href="international_2002.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="variables.js" defer></script>
-    <script src="functions.js" defer></script>
-    <script src="websocket.js" defer></script>
-    <script src="setup.js" defer></script>
-    <script src="logic.js" defer></script>
-  </head>
-  <body>
-    <div id="international-2002"></div>
-    <div id="international-rave-revival"></div>
-    <div id="wwm"></div>
-    <div id="money-tree-area">
-      <img id="money-tree-background" src="graphics/wwm/RUS_GRAPH/tree_back_cut.png">
-      <img id="money-tree-overlay" src="graphics/wwm/RUS_GRAPH/15/tree_15.png">
-      <div id="lifeline-area">
-        <div style=" width: 25%; height: 100%; position: absolute;">
-          <img id="lifeline-1" src="graphics/wwm/LIFELINES/20.png">
-        </div>
-        <div style=" width: 25%; height: 100%; position: absolute; left: 25%;">
-          <img id="lifeline-2" src="graphics/wwm/LIFELINES/10.png">
-        </div>
-        <div style=" width: 25%; height: 100%; position: absolute; left: 50%;">
-          <img id="lifeline-3" src="graphics/wwm/LIFELINES/30.png">
-        </div>
-        <div style=" width: 25%; height: 100%; position: absolute; left: 75%;">
-          <img id="lifeline-4" src="graphics/wwm/LIFELINES/110.png">
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/wwm.css">
+  <link rel="stylesheet" href="styles/international_2002.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="variables.js" defer></script>
+  <script src="functions.js" defer></script>
+  <script src="websocket.js" defer></script>
+  <script src="setup.js" defer></script>
+  <script src="logic.js" defer></script>
+</head>
+
+<body>
+  <div id="international-2002"></div>
+  <div id="international-rave-revival"></div>
+  <div id="wwm"></div>
+  <div id="money-tree-area">
+    <img id="money-tree-background" src="graphics/wwm/RUS_GRAPH/tree_back_cut.png">
+    <img id="money-tree-overlay" src="graphics/wwm/RUS_GRAPH/15/tree_15.png">
+    <div id="lifeline-area">
+      <div style=" width: 25%; height: 100%; position: absolute;">
+        <img id="lifeline-1" src="graphics/wwm/LIFELINES/20.png">
+      </div>
+      <div style=" width: 25%; height: 100%; position: absolute; left: 25%;">
+        <img id="lifeline-2" src="graphics/wwm/LIFELINES/10.png">
+      </div>
+      <div style=" width: 25%; height: 100%; position: absolute; left: 50%;">
+        <img id="lifeline-3" src="graphics/wwm/LIFELINES/30.png">
+      </div>
+      <div style=" width: 25%; height: 100%; position: absolute; left: 75%;">
+        <img id="lifeline-4" src="graphics/wwm/LIFELINES/110.png">
       </div>
     </div>
-    <button id="btn-level-up">Level up</button>
-    <button id="btn-level-down">Level down</button>
-    <button id="btn-show-correct">Show Correct Answer</button>
-    <button id="btn-set-wwm">Set Graphics to WWM</button>
-    <button id="btn-set-original">Set Graphics to Original</button>
-    <button id="btn-set-rave">Set Graphics to Rave</button>
-    <input type="checkbox" id="cb-lifeline-1-available" checked>
-    <div id="question-area">
-      <img src="graphics/wwm/RUS_LOZENG/lozeng00.png" id="question-img">
-      <span id="question-text" class="version-dependent-formatting">Wie heißt der Bürgermeister von Wesel – zumindest, wenn man dem berühmten Spruch Glauben schenken kann?</span>
-      <span class="answer-text version-dependent-formatting" id="answer-A">Ente</span>
-      <span class="answer-text version-dependent-formatting" id="answer-B">Esel</span>
-      <span class="answer-text version-dependent-formatting" id="answer-C">Elefant</span>
-      <span class="answer-text version-dependent-formatting" id="answer-D">Eidechse</span>
-      <!-- <img src="graphics/wwm/RUS_LOZENG/lozengARB.png" width="100%"> -->
-      <!-- <div id="question-text">Hier könnte Ihre Frage stehen!</div> -->
-    </div>
-  </body>
+  </div>
+  <button id="btn-level-up">Level up</button>
+  <button id="btn-level-down">Level down</button>
+  <button id="btn-show-correct">Show Correct Answer</button>
+  <button id="btn-set-wwm">Set Graphics to WWM</button>
+  <button id="btn-set-original">Set Graphics to Original</button>
+  <button id="btn-set-rave">Set Graphics to Rave</button>
+  <input type="checkbox" id="cb-lifeline-1-available" checked>
+  <div id="question-area">
+    <img src="graphics/wwm/RUS_LOZENG/lozeng00.png" id="question-img">
+    <span id="question-text" class="version-dependent-formatting">Wie heißt der Bürgermeister von Wesel – zumindest,
+      wenn man dem berühmten Spruch Glauben schenken kann?</span>
+    <span class="answer-text version-dependent-formatting" id="answer-A">Ente</span>
+    <span class="answer-text version-dependent-formatting" id="answer-B">Esel</span>
+    <span class="answer-text version-dependent-formatting" id="answer-C">Elefant</span>
+    <span class="answer-text version-dependent-formatting" id="answer-D">Eidechse</span>
+    <!-- <img src="graphics/wwm/RUS_LOZENG/lozengARB.png" width="100%"> -->
+    <!-- <div id="question-text">Hier könnte Ihre Frage stehen!</div> -->
+  </div>
+</body>
+
 </html>
