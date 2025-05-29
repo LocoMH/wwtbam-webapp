@@ -6,8 +6,7 @@
     --lifeline-3: 3;
 }
 
-#lifeline-area {
-    position: absolute;
+#lifeline-area.international-2002 {
     width: 80%;
     height: 8%;
     top: 5%;
@@ -61,14 +60,17 @@
     left: 23%;
     top: 54%;
 }
+
 #answer-B.international-2002 {
     left: 55.5%;
     top: 54%;
 }
+
 #answer-C.international-2002 {
     left: 23%;
     top: 80%;
 }
+
 #answer-D.international-2002 {
     left: 55.5%;
     top: 80%;

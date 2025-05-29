@@ -3,7 +3,7 @@
     --money-tree-distance: 5;
 }
 
-#lifeline-area {
+#lifeline-area.wwm {
     position: absolute;
     width: 80%;
     height: 8%;
@@ -54,14 +54,17 @@
     left: 13%;
     top: 51.5%;
 }
+
 #answer-B.wwm {
     left: 57%;
     top: 51.5%;
 }
+
 #answer-C.wwm {
     left: 13%;
     top: 77%;
 }
+
 #answer-D.wwm {
     left: 57%;
     top: 77%;
