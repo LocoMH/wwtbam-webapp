@@ -1,0 +1,77 @@
+#international-rave-revival {
+    --money-tree-top: 24;
+    --money-tree-distance: 4.62;
+    --lifeline-1: 2;
+    --lifeline-2: 1;
+    --lifeline-3: 3;
+}
+
+#lifeline-area.international-rave-revival {
+    width: 80%;
+    height: 8%;
+    top: 11%;
+    left: 5%;
+}
+
+.money-tree-text.international-rave-revival {
+    font-family: "Copperplate";
+    font-size: 2.5vh;
+}
+
+/* .money-tree-current-level.international-rave-revival {
+    color: black;
+    text-shadow: none;
+} */
+.money-tree-value.international-rave-revival {
+    left: 19.5%;
+}
+
+.money-tree-number.international-rave-revival {
+    left: 6%;
+    width: 7%;
+    justify-content: right;
+}
+
+.money-tree-safety-net.international-rave-revival {
+    color: lightyellow;
+    text-shadow: none;
+}
+
+#question-text.international-rave-revival {
+    height: 32%;
+    left: 15%;
+    top: 6%;
+    width: 70%;
+    font-size: 4.2vh;
+}
+
+.answer-text.international-rave-revival {
+    height: 15%;
+    width: 35%;
+    font-size: 3.7vh;
+}
+
+.logged-in-or-correct.international-rave-revival {
+    color: black;
+    text-shadow: 1px 1px 2px white;
+}
+
+#answer-A.international-rave-revival {
+    left: 15%;
+    top: 52.5%;
+}
+
+#answer-B.international-rave-revival {
+    left: 56%;
+    top: 52.5%;
+}
+
+#answer-C.international-rave-revival {
+    left: 15%;
+    top: 80%;
+}
+
+#answer-D.international-rave-revival {
+    left: 56%;
+    top: 80%;
+}

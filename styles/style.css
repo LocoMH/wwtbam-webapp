@@ -3,11 +3,11 @@ body {
 }
 
 #question-area {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: calc(1920 * 100% / 1920);
-  height: calc(328 * 100% / 1080);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(1920 * 100% / 1920);
+    height: calc(328 * 100% / 1080);
 }
 
 #money-tree-area {
@@ -20,10 +20,6 @@ body {
 
 #lifeline-area {
     position: absolute;
-    width: 80%;
-    height: 8%;
-    top: 5%;
-    left: 5%;
 }
 
 img {
@@ -52,6 +48,7 @@ span {
     color: black;
     text-shadow: none;
 }
+
 .money-tree-safety-net {
     color: white;
     text-shadow: none;
@@ -60,6 +57,7 @@ span {
 #money-tree-value-15 {
     top: 16.6%;
 }
+
 #money-tree-value-14 {
     top: 18.7%;
 }
@@ -67,7 +65,7 @@ span {
 #question-text {
     position: absolute;
     font-family: "Arial";
-    display: flex;  
+    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -76,7 +74,7 @@ span {
 .answer-text {
     position: absolute;
     font-family: "Arial";
-    display: flex;  
+    display: flex;
     text-align: left;
     align-items: center;
 }
