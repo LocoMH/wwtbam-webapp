@@ -1,0 +1,87 @@
+body {
+    background-color: black;
+}
+
+#question-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(1920 * 100% / 1920);
+  height: calc(328 * 100% / 1080);
+}
+
+#money-tree-area {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: calc(595 * 100% / 1920);
+    height: calc(753 * 100% / 1080);
+}
+
+#lifeline-area {
+    position: absolute;
+    width: 80%;
+    height: 8%;
+    top: 5%;
+    left: 5%;
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+span {
+    text-shadow: 1px 1px 2px black;
+    color: white;
+    /* background-color: purple; */
+}
+
+.money-tree-text {
+    position: absolute;
+    display: flex;
+    font-family: "Copperplate";
+    font-size: 2.8vh;
+    color: orange;
+}
+
+.money-tree-current-level {
+    color: black;
+    text-shadow: none;
+}
+.money-tree-safety-net {
+    color: white;
+    text-shadow: none;
+}
+
+#money-tree-value-15 {
+    top: 16.6%;
+}
+#money-tree-value-14 {
+    top: 18.7%;
+}
+
+#question-text {
+    position: absolute;
+    font-family: "Arial";
+    display: flex;  
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-text {
+    position: absolute;
+    font-family: "Arial";
+    display: flex;  
+    text-align: left;
+    align-items: center;
+}
+
+.logged-in-or-correct {
+    color: black;
+    text-shadow: 1px 1px 2px white;
+}
