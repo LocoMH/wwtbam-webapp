@@ -12,15 +12,8 @@ body {
 
 #money-tree-area {
     position: fixed;
-    right: 0;
-    top: 0;
-    width: calc(595 * 100% / 1920);
-    height: calc(753 * 100% / 1080);
 }
 
-#lifeline-area {
-    position: absolute;
-}
 
 img {
     position: absolute;
@@ -52,14 +45,6 @@ span {
 .money-tree-safety-net {
     color: white;
     text-shadow: none;
-}
-
-#money-tree-value-15 {
-    top: 16.6%;
-}
-
-#money-tree-value-14 {
-    top: 18.7%;
 }
 
 #question-text {
