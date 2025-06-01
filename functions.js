@@ -86,6 +86,14 @@ function updateQuestionGraphics() {
     }
 }
 
+function setVisibility(element, visible) {
+    if (visible) {
+        $(`#${element}`).show()
+    } else {
+        $(`#${element}`).hide()
+    }
+}
+
 function updateLayout() {
     $(".version-dependent-formatting").removeClass("international-rave-revival international-2002 wwm")
     $(".version-dependent-formatting").addClass(graphicsVersion)

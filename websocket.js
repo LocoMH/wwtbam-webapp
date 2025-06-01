@@ -28,6 +28,9 @@ socket.onmessage = (event) => {
     setGraphicsVersion(msg[1])
     return
   }
+  if (msg[0] == "setVisibility") {
+    setVisibility(msg[1], msg[2])
+  }
 }
 
 function sendMessage(message) {

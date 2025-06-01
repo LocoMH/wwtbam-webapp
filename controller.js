@@ -48,6 +48,12 @@ $(document).ready(function () {
     $('input[type=radio][name=graphics-version]').on("change", function () {
         sendMessage(message = ["setGraphicsVersion", this.value])
     })
+    $("#btn-show-paf").on("click", function () {
+        sendMessage(message = ["setVisibility", "paf-area", true])
+    })
+    $("#btn-hide-paf").on("click", function () {
+        sendMessage(message = ["setVisibility", "paf-area", false])
+    })
 
 
     // $('#btn-show-correct').on('click', function () {
