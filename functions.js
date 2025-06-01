@@ -47,7 +47,8 @@ function updateLifelineGraphics() {
 
 function updateMoneyTreeGraphics() {
     $('#money-tree-overlay').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/15/tree_${currentLevel}.png`)
-    $('#money-tree-background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/tree_back_cut.png`)
+    $('#money-tree-background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/tree_back_cut1.png`)
+    $('#background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/back1.jpg`)
     $('.money-tree-text').removeClass("money-tree-current-level")
     for (sn of safetyNets) {
         $(`#money-tree-value-${sn}`).addClass("money-tree-safety-net")
@@ -95,8 +96,8 @@ function setVisibility(element, visible) {
 }
 
 function updateLayout() {
-    $(".version-dependent-formatting").removeClass("international-rave-revival international-2002 wwm")
-    $(".version-dependent-formatting").addClass(graphicsVersion)
+    $("*").removeClass("international-rave-revival international-2002 wwm")
+    $("*").addClass(graphicsVersion)
     var moneyTreeTop = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue("--money-tree-top"))
     var moneyTreeDistance = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue("--money-tree-distance"))
     for (let i = 15; i >= 0; i--) {
