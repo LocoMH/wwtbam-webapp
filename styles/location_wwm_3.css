@@ -1,0 +1,7 @@
+#question-area.wwm { width: calc(1920 * 100vw / 1920);height: calc(328 * 100vh / 1080);left: calc(0 * 100vw / 1920);top: calc(711 * 100vh / 1080);}
+#money-tree-area.wwm { width: calc(848 * 100vw / 1920);height: calc(1080 * 100vh / 1080);left: calc(1222 * 100vw / 1920);top: calc(0 * 100vh / 1080);}
+#money-tree-overlay.wwm { left: calc(0 * 100vw / 1920);top: calc(0 * 100vh / 1080);width: calc(848 * 100vw / 1920);height: calc(1080 * 100vh / 1080);}
+#lifeline-1.wwm { width: calc(119 * 100vw / 1920);height: calc(67 * 100vh / 1080);left: calc(53 * 100vw / 1920);top: calc(0 * 100vh / 1080);}
+#lifeline-2.wwm { width: calc(119 * 100vw / 1920);height: calc(67 * 100vh / 1080);left: calc(169 * 100vw / 1920);top: calc(0 * 100vh / 1080);}
+#lifeline-3.wwm { width: calc(119 * 100vw / 1920);height: calc(67 * 100vh / 1080);left: calc(285 * 100vw / 1920);top: calc(0 * 100vh / 1080);}
+#lifeline-4.wwm { width: calc(119 * 100vw / 1920);height: calc(67 * 100vh / 1080);left: calc(401 * 100vw / 1920);top: calc(0 * 100vh / 1080);}
