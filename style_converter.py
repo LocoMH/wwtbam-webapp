@@ -34,12 +34,12 @@ class Dimension(Enum):
     HEIGHT = "HEIGHT"
 
 class ScreenType(Enum):
-    CONTESTANT = 1
-    HOST = 2
+    HOST = 1
+    CONTESTANT = 2
     TVSCREEN = 3
 
-def write_css(style: str, screen_type: ScreenType, content: str):
-    with open(Path("styles") / f"location_{style.replace('-', '_')}_{screen_type.value}.css", "w") as file:
+def write_css(style: str, content: str):
+    with open(Path("styles") / f"location_{style.replace('-', '_')}.css", "w") as file:
         file.write(content)
 
 
@@ -57,17 +57,12 @@ class Converter:
     def get_calc(self, value: Any, direction: Dimension) -> str:
         return f"calc({value} * 100{'vh' if direction == Dimension.HEIGHT else 'vw'} / {self._width if direction == Dimension.WIDTH else self._height})"
 
-def convert(style: str, screen_type: ScreenType):
+
+def generate_for_screen_type(style: str, screen_type: ScreenType) -> dict[str, dict]:
     with open(Path("graphics") / style / "RESOLUTION" / f"1920x1080{screen_type.value}.resolution", "r") as file:
         data = file.readlines()
 
-    content: str = ""
     result = defaultdict(dict)
-    # {
-    #     f"#question-area.{style}": {},
-    #     f"#money-tree-area.{style}": {},
-    #     f"#money-tree-overlay.{style}": {},
-    # }
 
     d_data = {}
     for line in data:
@@ -81,42 +76,55 @@ def convert(style: str, screen_type: ScreenType):
     converter = Converter(width=d_data["Window size"][0], height=d_data["Window size"][1])
 
     vals = d_data["QL Background Size"]
-    result[f"#question-area.{style}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#question-area.{style}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#question-area.{style}.{screen_type.name.lower()}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#question-area.{style}.{screen_type.name.lower()}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     vals = d_data["QL Background Location"]
-    result[f"#question-area.{style}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#question-area.{style}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#question-area.{style}.{screen_type.name.lower()}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#question-area.{style}.{screen_type.name.lower()}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     vals = d_data["TG Background Size"]
-    result[f"#money-tree-area.{style}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#money-tree-area.{style}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#money-tree-area.{style}.{screen_type.name.lower()}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#money-tree-area.{style}.{screen_type.name.lower()}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     vals = d_data["TG Background Location"]
-    result[f"#money-tree-area.{style}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#money-tree-area.{style}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#money-tree-area.{style}.{screen_type.name.lower()}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#money-tree-area.{style}.{screen_type.name.lower()}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     if screen_type == ScreenType.TVSCREEN:
         vals = d_data["TG Current Position Image X Location"] + d_data["TG Current Position Image Y Location 15 questions"]
     else:
         vals = d_data["TG Current Position Image Location"]
-    result[f"#money-tree-overlay.{style}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#money-tree-overlay.{style}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#money-tree-overlay.{style}.{screen_type.name.lower()}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#money-tree-overlay.{style}.{screen_type.name.lower()}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     vals = d_data["TG Current Position Image Size"]
-    result[f"#money-tree-overlay.{style}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-    result[f"#money-tree-overlay.{style}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    result[f"#money-tree-overlay.{style}.{screen_type.name.lower()}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    result[f"#money-tree-overlay.{style}.{screen_type.name.lower()}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
 
     no_of_lifelines = 4
     for i in range(no_of_lifelines):
         vals = d_data[f"LG Tree Icon {no_of_lifelines}-{i + 1} Size"]
-        result[f"#lifeline-{i + 1}.{style}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-        result[f"#lifeline-{i + 1}.{style}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+        result[f"#lifeline-{i + 1}.{style}.{screen_type.name.lower()}"]["width"] = converter.get_calc(int(vals[0]), direction=Dimension.WIDTH)
+        result[f"#lifeline-{i + 1}.{style}.{screen_type.name.lower()}"]["height"] = converter.get_calc(int(vals[1]), direction=Dimension.HEIGHT)
 
         vals = d_data[f"LG Tree Icon {no_of_lifelines}-{i + 1} Location"]
-        result[f"#lifeline-{i + 1}.{style}"]["left"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
-        result[f"#lifeline-{i + 1}.{style}"]["top"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+        vals_add = d_data.get("LG Tree Icons Y position for 15 questions", [0])[0]
+        result[f"#lifeline-{i + 1}.{style}.{screen_type.name.lower()}"]["left"] = converter.get_calc(int(vals[0]), direction=Dimension.WIDTH)
+        result[f"#lifeline-{i + 1}.{style}.{screen_type.name.lower()}"]["top"] = converter.get_calc(int(vals[1]) + int(vals_add), direction=Dimension.HEIGHT)
 
+    # no_of_questions = 15
+    # for i in range(no_of_questions):
+    #     vals = d_data[f"TG Stroke {i + 1} Location"]
+    #     result[f"#money-tree-value-{i + 1}.{style}.{screen_type.name.lower()}"]["left"] = converter.get_calc(int(vals[0]), direction=Dimension.WIDTH)
+    #     result[f"#money-tree-value-{i + 1}.{style}.{screen_type.name.lower()}"]["top"] = converter.get_calc(int(vals[1]), direction=Dimension.HEIGHT)
+
+    # vals = d_data["TG For Each Stroke Size"]
+    # result[f".money-tree-text.{style}.{screen_type.name.lower()}"]["width"] = converter.get_calc(vals[0], direction=Dimension.WIDTH)
+    # result[f".money-tree-text.{style}.{screen_type.name.lower()}"]["height"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+
+    # vals = d_data["TG For Each Stroke Font"]
+    # result[f".money-tree-text.{style}.{screen_type.name.lower()}"]["font-size"] = converter.get_calc(1.0 * float(vals[1]), direction=Dimension.HEIGHT)
 
 
         # if command == "QL Question Sizable Text Size":
@@ -156,15 +164,21 @@ def convert(style: str, screen_type: ScreenType):
         # if command == "QL Answers Text Font":
         #     result[".ql-answer"]["font-family"] = font_mapping[vals[0]]
         #     result[".ql-answer"]["font-size"] = converter.get_calc(vals[1], direction=Dimension.HEIGHT)
+    return result
 
 
 
-    content = PyCSS.parse(result)
-    write_css(style=style, screen_type=screen_type, content=content)
+
+
+def convert(style: str):
+    content: str = ""
+    for screen_type in ScreenType:
+        result = generate_for_screen_type(style=style, screen_type=screen_type)
+        content += PyCSS.parse(result)
+    write_css(style=style, content=content)
             
 
 if __name__ == "__main__":
     styles: list[str] = ["wwm", "international-rave-revival", "international-2002"]
     for style in styles:
-        for screen_type in ScreenType:
-            convert(style=style, screen_type=screen_type)
+        convert(style=style)
