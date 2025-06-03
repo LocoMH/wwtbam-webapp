@@ -5,11 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/location_wwm_1.css">
+  <link rel="stylesheet" href="styles/amount_1.css">
+  <link rel="stylesheet" href="styles/location_wwm.css">
   <link rel="stylesheet" href="styles/wwm.css">
-  <link rel="stylesheet" href="styles/location_international_2002_1.css">
+  <link rel="stylesheet" href="styles/location_international_2002.css">
   <link rel="stylesheet" href="styles/international_2002.css">
-  <link rel="stylesheet" href="styles/location_international_rave_revival_1.css">
+  <link rel="stylesheet" href="styles/location_international_rave_revival.css">
   <link rel="stylesheet" href="styles/international_rave_revival.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="variables.js" defer></script>
@@ -24,22 +25,24 @@
   <div id="international-rave-revival"></div>
   <div id="wwm"></div>
   <div style="width: 100%; height: 100%; position: fixed; top: 0%; left: 0%;">
-    <img id="background" src="graphics/international-rave-revival/RUS_GRAPH/back1.jpg">
+    <img id="img-background" src="graphics/international-rave-revival/RUS_GRAPH/back1.jpg">
   </div>
   <div id="money-tree-area">
     <img id="money-tree-background" src="graphics/wwm/RUS_GRAPH/tree_back_cut1.png">
-    <img id="money-tree-overlay" src="graphics/wwm/RUS_GRAPH/15/tree_15.png">
+    <div id="money-tree-overlay" style="position: absolute;">
+      <img id="money-tree-overlay-background" src="graphics/wwm/RUS_GRAPH/15/tree_15.png">
+    </div>
     <div style="position: absolute;">
-        <img id="lifeline-1" src="graphics/wwm/LIFELINES/20.png">
-      </div>
+      <img id="lifeline-1" src="graphics/wwm/LIFELINES/20.png">
+    </div>
     <div style="position: absolute;">
-        <img id="lifeline-2" src="graphics/wwm/LIFELINES/10.png">
-      </div>
+      <img id="lifeline-2" src="graphics/wwm/LIFELINES/10.png">
+    </div>
     <div style="position: absolute;">
-        <img id="lifeline-3" src="graphics/wwm/LIFELINES/30.png">
-      </div>
+      <img id="lifeline-3" src="graphics/wwm/LIFELINES/30.png">
+    </div>
     <div style="position: absolute;">
-        <img id="lifeline-4" src="graphics/wwm/LIFELINES/110.png">
+      <img id="lifeline-4" src="graphics/wwm/LIFELINES/110.png">
     </div>
   </div>
   <div id="question-area">
@@ -52,6 +55,9 @@
     <span class="answer-text" id="answer-D">Eidechse</span>
     <!-- <img src="graphics/wwm/RUS_LOZENG/lozengARB.png" width="100%"> -->
     <!-- <div id="question-text">Hier könnte Ihre Frage stehen!</div> -->
+  </div>
+  <div style="position: fixed; left: -2px; top: 0; width: calc(100% + 2px); height: 100%;">
+    <img src="graphics/wwm/GER_LOGO.jpg" id="img-logo-overlay">
   </div>
   <button id="btn-set-host" style="position: fixed; left: 10px; top: 10px;">Host</button>
   <button id="btn-set-contestant" style="position: fixed; left: 60px; top: 10px;">Contestant</button>
