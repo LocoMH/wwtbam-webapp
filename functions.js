@@ -46,9 +46,9 @@ function updateLifelineGraphics() {
 }
 
 function updateMoneyTreeGraphics() {
-    $('#money-tree-overlay').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/15/tree_${currentLevel}.png`)
-    $('#money-tree-background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/tree_back_cut1.png`)
-    $('#background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/back1.jpg`)
+    $('#money-tree-overlay-background').attr('src', `graphics/${graphicsVersion}/TREE/15/TREE${currentLevel}.png`)
+    $('#money-tree-background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/tree_back_cut${screenTypeMapping[screenType]}.png`)
+    $('#img-background').attr('src', `graphics/${graphicsVersion}/RUS_GRAPH/back${screenTypeMapping[screenType]}.jpg`)
     $('.money-tree-text').removeClass("money-tree-current-level")
     for (sn of safetyNets) {
         $(`#money-tree-value-${sn}`).addClass("money-tree-safety-net")
@@ -106,10 +106,27 @@ function updateLayout() {
     }
 }
 
+function updateScreenType() {
+    $("*").removeClass("host contestant tvscreen")
+    $("*").addClass(screenType)
+    register()
+}
+
+function updateLogo() {
+    $("#img-logo-overlay").attr("src", `graphics/${graphicsVersion}/GER_LOGO.jpg`)
+}
+
 function setGraphicsVersion(newGraphicsVersion) {
     graphicsVersion = newGraphicsVersion
     updateQuestionGraphics()
     updateMoneyTreeGraphics()
     updateLifelineGraphics()
     updateLayout()
+    updateLogo()
+}
+
+function setScreenType(newScreenType) {
+    screenType = newScreenType
+    updateScreenType()
+    updateMoneyTreeGraphics()
 }

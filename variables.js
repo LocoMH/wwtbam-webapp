@@ -8,10 +8,21 @@ var lifelineMapping = {
     3: 3,
     4: 11
 }
+var screenTypeMapping = {
+    'host': 1,
+    'contestant': 2,
+    'tvscreen': 3
+}
+var screenTypePasskeys = {
+    "host": "host123",
+    "contestant": "cont123",
+    "tvscreen": "tv123"
+}
 var lifelineAvailability = {
     1: true,
     2: true,
     3: true,
     4: true
 }
-var graphicsVersion = 'international-rave-revival'
+var graphicsVersion = 'international-2002'
+var screenType = 'host'
