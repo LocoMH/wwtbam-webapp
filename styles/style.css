@@ -14,6 +14,13 @@ body {
     position: fixed;
 }
 
+.money-tree-number {
+    position: fixed;
+}
+
+.money-tree-value {
+    position: fixed;
+}
 
 img {
     position: absolute;
@@ -32,8 +39,8 @@ span {
 .money-tree-text {
     position: absolute;
     display: flex;
+    align-items: center;
     font-family: "Copperplate";
-    font-size: 2.8vh;
     color: orange;
 }
 

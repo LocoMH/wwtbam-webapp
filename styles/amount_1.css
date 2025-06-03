@@ -1,0 +1,134 @@
+#money-tree-value-1.host::before,
+#money-tree-value-1.contestant::before {
+    content: "£100";
+}
+
+#money-tree-value-1.tvscreen::before {
+    content: "£100";
+}
+
+#money-tree-value-2.host::before,
+#money-tree-value-2.contestant::before {
+    content: "£200";
+}
+
+#money-tree-value-2.tvscreen::before {
+    content: "£200";
+}
+
+#money-tree-value-3.host::before,
+#money-tree-value-3.contestant::before {
+    content: "£300";
+}
+
+#money-tree-value-3.tvscreen::before {
+    content: "£300";
+}
+
+#money-tree-value-4.host::before,
+#money-tree-value-4.contestant::before {
+    content: "£500";
+}
+
+#money-tree-value-4.tvscreen::before {
+    content: "£500";
+}
+
+#money-tree-value-5.host::before,
+#money-tree-value-5.contestant::before {
+    content: "£1,000";
+}
+
+#money-tree-value-5.tvscreen::before {
+    content: "£1,000";
+}
+
+#money-tree-value-6.host::before,
+#money-tree-value-6.contestant::before {
+    content: "£2,000";
+}
+
+#money-tree-value-6.tvscreen::before {
+    content: "£2,000";
+}
+
+#money-tree-value-7.host::before,
+#money-tree-value-7.contestant::before {
+    content: "£4,000";
+}
+
+#money-tree-value-7.tvscreen::before {
+    content: "£4,000";
+}
+
+#money-tree-value-8.host::before,
+#money-tree-value-8.contestant::before {
+    content: "£8,000";
+}
+
+#money-tree-value-8.tvscreen::before {
+    content: "£8,000";
+}
+
+#money-tree-value-9.host::before,
+#money-tree-value-9.contestant::before {
+    content: "£16,000";
+}
+
+#money-tree-value-9.tvscreen::before {
+    content: "£16,000";
+}
+
+#money-tree-value-10.host::before,
+#money-tree-value-10.contestant::before {
+    content: "£32,000";
+}
+
+#money-tree-value-10.tvscreen::before {
+    content: "£32,000";
+}
+
+#money-tree-value-11.host::before,
+#money-tree-value-11.contestant::before {
+    content: "£64,000";
+}
+
+#money-tree-value-11.tvscreen::before {
+    content: "£64,000";
+}
+
+#money-tree-value-12.host::before,
+#money-tree-value-12.contestant::before {
+    content: "£125,000";
+}
+
+#money-tree-value-12.tvscreen::before {
+    content: "£125,000";
+}
+
+#money-tree-value-13.host::before,
+#money-tree-value-13.contestant::before {
+    content: "£250,000";
+}
+
+#money-tree-value-13.tvscreen::before {
+    content: "£250,000";
+}
+
+#money-tree-value-14.host::before,
+#money-tree-value-14.contestant::before {
+    content: "£500,000";
+}
+
+#money-tree-value-14.tvscreen::before {
+    content: "£500,000";
+}
+
+#money-tree-value-15.host::before,
+#money-tree-value-15.contestant::before {
+    content: "£1 MILLION";
+}
+
+#money-tree-value-15.tvscreen::before {
+    content: "£1 MILLION";
+}

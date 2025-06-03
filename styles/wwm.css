@@ -11,19 +11,10 @@
     left: 5%;
 }
 
-.money-tree-text.wwm {
-    font-family: "Copperplate";
-    font-size: 2.7vh;
-}
-
-.money-tree-value.wwm {
-    left: 22%;
-}
-
 .money-tree-number.wwm {
-    left: 6.5%;
-    width: 7%;
+    /* width: 7%; */
     justify-content: center;
+    position: absolute;
 }
 
 .money-tree-safety-net.wwm {
