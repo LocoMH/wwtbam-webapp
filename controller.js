@@ -48,24 +48,19 @@ $(document).ready(function () {
     $('input[type=radio][name=graphics-version]').on("change", function () {
         sendMessage(message = ["setGraphicsVersion", this.value])
     })
+    $('#cb-money-tree-area-visible').on("change", function () {
+        sendMessage(message = ["setVisibility", "money-tree-area", this.checked], ["controller", "tvscreen"])
+    })
     $("#btn-show-paf").on("click", function () {
         sendMessage(message = ["setVisibility", "paf-area", true])
     })
     $("#btn-hide-paf").on("click", function () {
         sendMessage(message = ["setVisibility", "paf-area", false])
     })
-
-
-    // $('#btn-show-correct').on('click', function () {
-    //     showCorrectAnswer("B")
-    // })
-    // $('#btn-level-up').on('click', function () {
-    //     setCurrentLevel(currentLevel + 1)
-    // })
-    // $('#btn-level-down').on('click', function () {
-    //     setCurrentLevel(currentLevel - 1)
-    // })
-    // $('#cb-lifeline-1-available').on('change', function() {
-    //     setLifelineAvailability(4, this.checked)
-    // })
+    $("#btn-show-logo").on("click", function () {
+        sendMessage(message = ["setVisibility", "img-logo-overlay", true])
+    })
+    $("#btn-hide-logo").on("click", function () {
+        sendMessage(message = ["setVisibility", "img-logo-overlay", false])
+    })
 })
