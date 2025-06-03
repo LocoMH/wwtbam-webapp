@@ -1,15 +1,26 @@
 const socket = new WebSocket("ws://localhost:6789")
-
+var socketConnected = false
 // Connection opened
 socket.onopen = (event) => {
+  socketConnected = true
+  register()
+}
+
+function register() {
+  console.log(socketConnected)
+  if (!socketConnected) {
+    return
+  }
   socket.send(JSON.stringify({
-    "role": "contestant",
-    "token": "cont123"
+    "role": screenType,
+    "token": screenTypePasskeys[screenType]
   }))
 }
 
 // Listen for messages
 socket.onmessage = (event) => {
+  console.log("Message from server ", event.data);
+
   msg = JSON.parse(event.data).message
 
   if (msg[0] == "login") {
