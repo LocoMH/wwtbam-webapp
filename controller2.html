@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vuetify Toggle with WebSocket</title>
+    <!-- Vuetify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.5.10/dist/vuetify.min.css" rel="stylesheet">
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Vuetify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.5.10/dist/vuetify.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <v-app>
+            <v-main class="pa-4">
+                <v-btn-toggle v-model="selected" mandatory color="primary" class="mt-4"
+                    @update:model-value="handleSelection">
+                    <v-btn value="money">Money Tree</v-btn>
+                    <v-btn value="question">Question Area</v-btn>
+                </v-btn-toggle>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+        const { createVuetify } = Vuetify;
+
+        const vuetify = createVuetify({
+            theme: {
+                defaultTheme: 'dark',
+            },
+        });
+
+        createApp({
+            setup() {
+                const selected = ref("question"); // default selection
+                let socket = null;
+
+                function handleSelection(value) {
+                    console.log("Selected option:", value);
+
+                    if (value === "money") {
+                        sendMessage({ type: "message", message: ["setVisibility", "question-area", false], roles: ["controller", "tvscreen"] });
+                        sendMessage({ type: "message", message: ["setVisibility", "money-tree-area", true], roles: ["controller", "tvscreen"] });
+                    } else if (value === "question") {
+                        sendMessage({ type: "message", message: ["setVisibility", "money-tree-area", false], roles: ["controller", "tvscreen"] });
+                        sendMessage({ type: "message", message: ["setVisibility", "question-area", true], roles: ["controller", "tvscreen"] });
+                    }
+                }
+
+                function sendMessage(data) {
+                    if (socket && socket.readyState === WebSocket.OPEN) {
+                        socket.send(JSON.stringify(data));
+                    } else {
+                        console.warn("WebSocket not connected.");
+                    }
+                }
+
+                function handleMessage(event) {
+                    try {
+                        const message = JSON.parse(event.data);
+                        console.log("Message received:", message);
+                        // Add logic here to react to incoming messages
+                    } catch (err) {
+                        console.error("Failed to parse message:", event.data);
+                    }
+                }
+
+                onMounted(() => {
+                    socket = new WebSocket("ws://localhost:6789");
+
+                    socket.addEventListener("open", () => {
+                        console.log("WebSocket connected.");
+                        sendMessage({ role: "controller", token: "ctrl123" });
+
+                        // Send initial visibility state
+                        handleSelection(selected.value);
+                    });
+
+                    socket.addEventListener("message", handleMessage);
+                    socket.addEventListener("close", () => console.log("WebSocket closed."));
+                    socket.addEventListener("error", (err) => console.error("WebSocket error:", err));
+                });
+
+                return {
+                    selected,
+                    handleSelection,
+                };
+            }
+        }).use(vuetify).mount('#app');
+    </script>
+
+</body>
+
+</html>
