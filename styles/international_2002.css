@@ -1,6 +1,6 @@
 #international-2002 {
-    --money-tree-top: 17.2;
-    --money-tree-distance: 5.31;
+    --money-tree-top: 17;
+    --money-tree-distance: 5.22;
     --lifeline-1: 2;
     --lifeline-2: 1;
     --lifeline-3: 3;
@@ -17,6 +17,37 @@
     color: black;
     text-shadow: none;
 } */
+
+.money-tree-text.host.international-2002,
+.money-tree-text.contestant.international-2002 {
+    font-size: calc(32 * 100vh / 1080);
+}
+
+.money-tree-text.tvscreen.international-2002 {
+    font-size: calc(40 * 100vh / 1080);
+}
+
+.money-tree-value.host.international-2002,
+.money-tree-value.contestant.international-2002 {
+    left: calc(150 * 100vw / 1920);
+}
+
+.money-tree-value.tvscreen.international-2002 {
+    left: calc(170 * 100vw / 1920);
+}
+
+.money-tree-number.host.international-2002,
+.money-tree-number.contestant.international-2002 {
+    left: calc(40 * 100vw / 1920);
+    width: 7%;
+    justify-content: right;
+}
+
+.money-tree-number.tvscreen.international-2002 {
+    left: calc(60 * 100vw / 1920);
+    width: 7%;
+    justify-content: right;
+}
 
 .money-tree-safety-net.international-2002 {
     color: lightyellow;

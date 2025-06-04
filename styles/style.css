@@ -14,14 +14,6 @@ body {
     position: fixed;
 }
 
-.money-tree-number {
-    position: fixed;
-}
-
-.money-tree-value {
-    position: fixed;
-}
-
 img {
     position: absolute;
     width: 100%;

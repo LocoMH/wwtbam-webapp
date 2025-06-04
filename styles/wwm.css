@@ -1,6 +1,6 @@
 #wwm {
-    --money-tree-top: 16.6;
-    --money-tree-distance: 5;
+    --money-tree-top: 17.3;
+    --money-tree-distance: 5.25;
 }
 
 #lifeline-area.wwm {
@@ -11,10 +11,35 @@
     left: 5%;
 }
 
-.money-tree-number.wwm {
-    /* width: 7%; */
+.money-tree-text.host.wwm,
+.money-tree-text.contestant.wwm {
+    font-size: calc(32 * 100vh / 1080);
+}
+
+.money-tree-text.tvscreen.wwm {
+    font-size: calc(44 * 100vh / 1080);
+}
+
+.money-tree-value.host.wwm,
+.money-tree-value.contestant.wwm {
+    left: calc(125 * 100vw / 1920);
+}
+
+.money-tree-value.tvscreen.wwm {
+    left: calc(210 * 100vw / 1920);
+}
+
+.money-tree-number.host.wwm,
+.money-tree-number.contestant.wwm {
+    left: calc(30 * 100vw / 1920);
+    width: 7%;
     justify-content: center;
-    position: absolute;
+}
+
+.money-tree-number.tvscreen.wwm {
+    left: calc(75 * 100vw / 1920);
+    width: 7%;
+    justify-content: center;
 }
 
 .money-tree-safety-net.wwm {

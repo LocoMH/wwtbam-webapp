@@ -98,11 +98,13 @@ function setVisibility(element, visible) {
 function updateLayout() {
     $("*").removeClass("international-rave-revival international-2002 wwm")
     $("*").addClass(graphicsVersion)
-    var moneyTreeTop = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue("--money-tree-top"))
-    var moneyTreeDistance = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue("--money-tree-distance"))
+    var moneyTreeTop = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue(`--money-tree-top`))
+    var moneyTreeDistance = parseFloat(getComputedStyle($(`#${graphicsVersion}`)[0]).getPropertyValue(`--money-tree-distance`))
     for (let i = 15; i >= 0; i--) {
-        $(`#money-tree-number-${i}`).css('top', `${(15 - i) * moneyTreeDistance + moneyTreeTop}%`);
-        $(`#money-tree-value-${i}`).css('top', `${(15 - i) * moneyTreeDistance + moneyTreeTop}%`);
+        $(`#money-tree-number-${i}`).css('top', `${(15 - i) * moneyTreeDistance + moneyTreeTop}%`)
+        $(`#money-tree-value-${i}`).css('top', `${(15 - i) * moneyTreeDistance + moneyTreeTop}%`)
+        $(`#money-tree-number-${i}`).css('height', `${moneyTreeDistance}%`)
+        $(`#money-tree-value-${i}`).css('height', `${moneyTreeDistance}%`)
     }
 }
 
