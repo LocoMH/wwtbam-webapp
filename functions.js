@@ -30,17 +30,34 @@ function setCurrentLevel(level) {
     updateMoneyTreeGraphics()
 }
 
-function setLifelineAvailability(lifeline, available) {
-    lifelineAvailability[lifeline] = available
-    updateLifelineGraphics()
-}
-
 function updateLifelineGraphics() {
-    for (const [lifeline, available] of Object.entries(lifelineAvailability)) {
-        if (available) {
-            $(`#lifeline-${lifeline}`).attr("src", `graphics/${graphicsVersion}/LIFELINES/${lifelineMapping[lifeline]}0.png`)
+    let numberOfLifelines = Object.keys(lifelineStatus).length
+    $('[id^="lifeline-"]').each(function () {
+        this.classList.forEach(cls => {
+            if (cls.startsWith('lifeline-')) {
+                this.classList.remove(cls);
+            }
+        })
+    })
+    for (let i = 1; i <= 6; i++) {
+        $(`#lifeline-${i}`).addClass(`lifeline-${numberOfLifelines}-${i}`)
+        if (i <= numberOfLifelines) {
+            $(`#lifeline-${i}`).show()
         } else {
+            $(`#lifeline-${i}`).hide()
+        }
+    }
+    for (const [lifeline, status] of Object.entries(lifelineStatus)) {
+        $(`#lifeline-${lifeline}`).css("filter", "grayscale(0%)")
+        if (status == "available") {
+            $(`#lifeline-${lifeline}`).attr("src", `graphics/${graphicsVersion}/LIFELINES/${lifelineMapping[lifeline]}0.png`)
+        } else if (status == "used") {
             $(`#lifeline-${lifeline}`).attr("src", `graphics/${graphicsVersion}/LIFELINES/${lifelineMapping[lifeline]}x.png`)
+        } else if (status == "highlighted") {
+            $(`#lifeline-${lifeline}`).attr("src", `graphics/${graphicsVersion}/LIFELINES/${lifelineMapping[lifeline]}1.png`)
+        } else if (status == "unavailable") {
+            $(`#lifeline-${lifeline}`).attr("src", `graphics/${graphicsVersion}/LIFELINES/${lifelineMapping[lifeline]}0.png`)
+            $(`#lifeline-${lifeline}`).css("filter", "grayscale(100%)")
         }
     }
 }
@@ -93,6 +110,11 @@ function setVisibility(element, visible) {
     } else {
         $(`#${element}`).hide()
     }
+}
+
+function setLifelineStatus(lifeline, status) {
+    lifelineStatus[lifeline] = status
+    updateLifelineGraphics()
 }
 
 function updateLayout() {

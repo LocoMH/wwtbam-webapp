@@ -41,6 +41,11 @@ socket.onmessage = (event) => {
   }
   if (msg[0] == "setVisibility") {
     setVisibility(msg[1], msg[2])
+    return
+  }
+  if (msg[0] == "setLifelineStatus") {
+    setLifelineStatus(lifeline = msg[1], status = msg[2])
+    return
   }
 }
 
